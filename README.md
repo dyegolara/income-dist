@@ -47,9 +47,23 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ### Prisma
 - You need to add Models to the `schema.prisma` file for each of your tables.
-- Each time you update the models, you need to run `pnpm prisma migrate dev` to update the database.
+- Each time you update the models:
+  - You need to run `pnpm prisma db push` to update the database locally and test the changes.
+  - Then, to save the changes in the database, you need to run `pnpm prisma migrate dev --name <name of migration>`.
+  - And then you can save the changes in git.
 
 ### NextAuth.js
 - You need to add Providers to the `pages/api/auth/[...nextauth].ts` file for each of your authentication providers.
-- You need to add the `NEXTAUTH_URL` environment variable to your `.env.local` and `vercel.json` files .
-- 
+- Generate `NEXTAUTH_SECRET` and running `openssl rand -base64 32` and set it in your .env file.
+
+### tRPC
+- You need to add Queries and Mutations to the `pages/api/trpc/[...trpc].ts` file for each of your API endpoints.
+
+### Vercel
+- Go to [vercel.com](vercel.com) and select the project from Github.
+- Add the following environment variables:
+  - `NEXTAUTH_URL` - The URL of your app, e.g. `https://my-app.vercel.app`
+  - `NEXTAUTH_SECRET` - The secret you generated for NextAuth.js
+  - `DATABASE_URL` - The URL of your **production AND preview** database, e.g. `postgresql://postgres:postgres@localhost:5432/my-app`
+- Go to vercel.com/dyegolara/<your-project-name>/settings > General > Build & Development Settings > Project Settings
+  - Override the `Build Command` with `prisma generate && prisma migrate deploy && next build`
