@@ -9,6 +9,7 @@ specifiers:
   '@trpc/next': ^10.8.1
   '@trpc/react-query': ^10.8.1
   '@trpc/server': ^10.8.1
+  '@types/lodash': ^4.14.191
   '@types/node': ^18.11.18
   '@types/prettier': ^2.7.2
   '@types/react': ^18.0.26
@@ -18,6 +19,7 @@ specifiers:
   autoprefixer: ^10.4.7
   eslint: ^8.30.0
   eslint-config-next: 13.1.1
+  lodash: ^4.17.21
   next: 13.1.1
   next-auth: ^4.18.7
   postcss: ^8.4.14
@@ -26,6 +28,7 @@ specifiers:
   prisma: ^4.8.0
   react: 18.2.0
   react-dom: 18.2.0
+  react-hook-form: ^7.41.5
   superjson: 1.9.1
   tailwindcss: ^3.2.0
   typescript: ^4.9.4
@@ -40,10 +43,13 @@ dependencies:
   '@trpc/next': 10.8.2_vhvmlqqydbw6uuokaxtwch54zy
   '@trpc/react-query': 10.8.2_jk7y2roqpjmck5g55a4fdace5i
   '@trpc/server': 10.8.2
+  '@types/lodash': 4.14.191
+  lodash: 4.17.21
   next: 13.1.1_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.18.8_q76c2b4vyoegvsbrcwkfvimnai
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.41.5_react@18.2.0
   superjson: 1.9.1
   zod: 3.20.2
 
@@ -405,6 +411,10 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
+    dev: false
 
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
@@ -1920,6 +1930,10 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
+
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
@@ -2397,6 +2411,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form/7.41.5_react@18.2.0:
+    resolution: {integrity: sha512-DAKjSJ7X9f16oQrP3TW2/eD9N6HOgrmIahP4LOdFphEWVfGZ2LulFd6f6AQ/YS/0cx/5oc4j8a1PXxuaurWp/Q==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:

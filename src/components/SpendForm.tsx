@@ -1,12 +1,32 @@
 import { RadioGroup } from "@headlessui/react";
-const plans = [
+import { useForm } from "react-hook-form";
+
+type Category = {
+  id: number;
+  name: string;
+  checkedColor: string;
+};
+
+type Spend = {
+  amount: number;
+  category?: Category["name"];
+};
+
+const categories: Category[] = [
   { id: 1, name: "Basic", checkedColor: "bg-amber-600" },
   { id: 2, name: "Luxury", checkedColor: "bg-emerald-500" },
   { id: 3, name: "Savings", checkedColor: "bg-blue-600" },
 ];
+
 export const SpendForm: React.FC = () => {
+  const { handleSubmit, register } = useForm<Spend>();
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
   return (
-    <form method="POST" action="/spend">
+    <form onSubmit={void handleSubmit(onSubmit)}>
       <label
         htmlFor="amount"
         className="block text-sm font-medium text-gray-300"
@@ -18,25 +38,25 @@ export const SpendForm: React.FC = () => {
           <span className="text-gray-500 sm:text-sm">$</span>
         </div>
         <input
+          {...register("amount", { required: true })}
           type="text"
-          name="amount"
           id="amount"
           className="block w-full rounded-md border-gray-300 px-7 py-4 focus:border-fuchsia-500 focus:ring-fuchsia-500"
           placeholder="0.00"
         />
       </div>
 
-      <RadioGroup name="category">
+      <RadioGroup {...register("category")}>
         <RadioGroup.Label className={`text-sm font-medium text-gray-300`}>
           Category
         </RadioGroup.Label>
-        {plans.map((plan) => (
+        {categories.map((plan) => (
           <RadioGroup.Option
             key={plan.id}
-            value={plan}
+            value={plan.name}
             className={({ checked }) => `
-              relative mt-2 rounded-md rounded-md border-gray-200 px-7 py-4 text-white focus:outline-none
-              focus:ring-2 focus:${plan.checkedColor} focus:ring-offset-2
+              mt-2 rounded-md border border-white px-7 py-4 text-white focus:outline-none
+              focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800
               ${checked ? plan.checkedColor : ""}
             `}
           >
