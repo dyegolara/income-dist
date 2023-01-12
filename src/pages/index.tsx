@@ -18,12 +18,12 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-between bg-gradient-to-b from-black to-gray-900">
         <Tab.Group defaultIndex={1}>
-          <Tab.Panels className="container flex flex-col items-center">
+          <Tab.Panels className="container flex flex-col items-center p-8">
             <Tab.Panel className="text-white">Tab 1 content</Tab.Panel>
             <Tab.Panel>
-              <div>
-                <h1 className="mt-8 text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-                  Income <span className="text-[hsl(280,100%,70%)]">Dist</span>
+              <>
+                <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
+                  Income <span className="text-fuchsia-500">Dist</span>
                 </h1>
 
                 <p className="mt-4 text-lg text-gray-300">
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
                 </p>
 
                 <SpendForm />
-              </div>
+              </>
             </Tab.Panel>
             <Tab.Panel className="text-white">Tab 3 content</Tab.Panel>
           </Tab.Panels>
